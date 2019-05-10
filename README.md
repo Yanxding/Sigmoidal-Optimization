@@ -28,4 +28,5 @@ The following images show how envelopes are constructed on a variety of function
 <img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/logistic_env.png" width="400">
 
 The example below is a polynomial function with 2 inflection points and a shape close to the Friedman-Savage utility function. The overall envelope gives a much tighter concave approximation than the decomposition.
-<img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/envelope_compare.png" width="600">
+<img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/envelope_compare.png" width="800">
+
