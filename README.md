@@ -22,6 +22,7 @@ In this project, we propose an algorithm for constructing an overall concave env
 ## Experiment Examples
 ### Overall Concave Envelope
 The following images show how envelopes are constructed on a variety of example functions with multiple inflection points.
+
 <img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/gaussian_env.png" width="420">
 <img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/poly_env.png" width="420">
 <img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/sine_env.png" width="420">
