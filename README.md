@@ -20,3 +20,9 @@ However, fast convergence of the algorithm depends on a tight concave approximat
 In this project, we propose an algorithm for constructing an overall concave envelope rather than decomposing the non-sigmoidal function. After approximating an overall concave envelope, the SP problem can be solved by branch-and-bound method as presented by the paper. The solver in this project is implemented in MATLAB and the concave subproblems are solved using [CVX solvers](http://cvxr.com/cvx/).
 
 ## Experiment Examples
+### Overall Concave Envelope
+The following images show how envelopes are constructed on a variety of example functions with multiple inflection points.
+<img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/gaussian_env.png" width="420">
+<img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/poly_env.png" width="420">
+<img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/sine_env.png" width="420">
+<img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/logistic_env.png" width="420">
