@@ -54,12 +54,12 @@ function [W,I,g] = envelope(f, df, l, u, z, c)
         [m1, m2] = find_m(g, df, l, k(i+2), k(i), k(i+1));
         g(x) = ((g(m2)-g(m1))/(m2-m1)*(x-m1) + g(m1)) * heaviside(x-m1) * (1 - heaviside(x-m2)) + g(x) * (1 - heaviside(x-m1) * (1 - heaviside(x-m2)));
         ix = find(W<(m1-delta));
-        W = W(W<m1);
+        W1 = W(W<(m1-delta));
         if isempty(ix)
-            W = [m1;m2];
+            W = [l;m2];
             I = 0;
         else
-            W = [W; m1; m2];
+            W = [W1; m1; m2];
             I = [I(1:max(ix)-1); 1; 0];
         end
         i = i + 2;

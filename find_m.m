@@ -30,15 +30,30 @@ function [m1, m2] = find_m(f, df, l, u, k1, k2)
             [x_val,M_val] = fminbnd(M, k2, u);
             iter = iter + 1;
         end
+    else
+        return
     end
     M = matlabFunction(m(x,m1,m2));
-    [x_val,M_val] = fminbnd(M, l, k1);
-    iter = 1;
-    while (abs(M_val) > 10^-8) && (iter < 1000)
-        m1 = x_val;
+    [x_val_1,M_val_1] = fminbnd(M, l, k1);
+    while (abs(M_val_1) > 10^-8) || (abs(M_val) > 10^-8)
+        iter = 1;
+        while (abs(M_val_1) > 10^-8) && (iter < 1000)
+            m1 = x_val_1;
+            M = matlabFunction(m(x,m1,m2));
+            [x_val_1,M_val_1] = fminbnd(M, l, k1);
+            iter = iter + 1;
+        end
         M = matlabFunction(m(x,m1,m2));
-        [x_val,M_val] = fminbnd(M, l, k1);
-        iter = iter + 1;
+        [x_val,M_val] = fminbnd(M, k2, u);
+        iter = 1;
+        while (abs(M_val) > 10^-8) && (iter < 1000)
+            m2 = x_val;
+            M = matlabFunction(m(x,m1,m2));
+            [x_val,M_val] = fminbnd(M, k2, u);
+            iter = iter + 1;
+        end
+        M = matlabFunction(m(x,m1,m2));
+        [x_val_1,M_val_1] = fminbnd(M, l, k1);
     end
 end
 
@@ -48,4 +63,13 @@ if isempty(s) == 0
     m2 = s;
     return
 end
+
+
+
+    while (abs(M_val) > 10^-8) && (iter < 1000)
+        m1 = x_val;
+        M = matlabFunction(m(x,m1,m2));
+        [x_val,M_val] = fminbnd(M, l, k1);
+        iter = iter + 1;
+    end
 %}
