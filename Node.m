@@ -45,7 +45,7 @@ classdef Node < handle
       function Node_wo(obj, objective, A , B, subtol)
          nvar = length(obj.l);
          for i=1:nvar
-                 [w_cor{i},obj.I{i}] = envelope(objective.f{i},obj.l(i),obj.u(i),objective.z{i},objective.c{i});
+                 [w_cor{i},obj.I{i}] = envelope(objective.f{i},objective.df{i},obj.l(i),obj.u(i),objective.z{i},objective.c{i});
          end
          obj.w = w_cor;
          Node_w(obj, objective, A, B, subtol);
