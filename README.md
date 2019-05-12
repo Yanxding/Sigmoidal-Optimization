@@ -19,7 +19,7 @@ However, fast convergence of the algorithm depends on a tight concave approximat
 ## Implementation
 In this project, we propose an algorithm for constructing an overall concave envelope rather than decomposing the non-sigmoidal function. After approximating an overall concave envelope, the SP problem can be solved by branch-and-bound method as presented by the paper. The solver in this project is implemented in MATLAB and the concave subproblems are solved using [CVX solvers](http://cvxr.com/cvx/).
 
-## Experiment Examples
+## Experimental Examples
 ### Overall Concave Envelope
 The following images show how envelopes are constructed on a variety of functions with multiple inflection points.
 <img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/gaussian_env.png" width="400">
@@ -30,3 +30,4 @@ The following images show how envelopes are constructed on a variety of function
 The example below is a polynomial function with 2 inflection points and a shape close to the Friedman-Savage utility function. The overall envelope gives a much tighter concave approximation than the decomposition.
 <img src="https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/envelope_compare.png" width="800">
 
+### SP Problems
