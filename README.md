@@ -19,6 +19,11 @@ However, fast convergence of the algorithm depends on a tight concave approximat
 ## Implementation
 In this project, an algorithm is proposed for constructing an overall concave envelope rather than decomposing the non-sigmoidal function. After approximating an overall concave envelope, the SP problem can be solved by branch-and-bound method as presented by the paper. The solver in this project is implemented in MATLAB and the concave subproblems are solved using [CVX solvers](http://cvxr.com/cvx/).
 
+## Usage Guideline
+The function _solve_sp_ can be called to solve a SP problem.
+![alt text](https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/func.PNG)
+_l_ and _u_ are vectors of lower and upper bounds for the ranges of decision variables. _A_ and _B_ are matrix for linear constraints such that _Ax <= B_.  _objective_ is the objective function of the problem, which is in _struct_ data structure with the objective functions, first derivatives of the functions, and inflection points and convex/concave indicators of each function included inside.
+
 ## Experimental Examples
 ### Overall Concave Envelope
 The following images show how envelopes are constructed on a variety of functions with multiple inflection points.
@@ -44,5 +49,5 @@ The table below shows comparison between the method by the paper and in this pro
 
 #### Sample with complex objective
 The second sample involved functions in the objective with multiple inflection points.
-
-
+![alt text](https://github.com/Yanxding/Sigmoidal-Optimization/blob/appendix/sample2.PNG)
+Both methods yields similar optimal solutions. The overall envelope method in this project costs **7.41 s** with 3 iterations. However, by decomposition, it takes **165.22 s** in 3 iterations. The much tighter envelope enables much faster convergence to optimality. Specifically, we know that for functions in polynomial form, such as in this example, the overall envelope method by this project is more computational efficient.
